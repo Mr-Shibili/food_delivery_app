@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/presentation/pages/authentication/forget_password.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/log_in.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        fontFamily: 'Poppins',
         brightness: Brightness.light,
         /* light theme settings */
       ),
@@ -19,9 +21,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         /* dark theme settings */
       ),
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
-      home: const LogInScreen(),
+      home: LogInScreen(),
     );
   }
 }
