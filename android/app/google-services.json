@@ -29,6 +29,13 @@
             {
               "client_id": "183383681747-4hmtver69hk9ccbbjav04j8ofdo3ej1l.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "183383681747-ak0ruf3lakl7k62ml3t6ja2l18qph847.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.foodDeliveryApp.RunnerTests"
+              }
             }
           ]
         }

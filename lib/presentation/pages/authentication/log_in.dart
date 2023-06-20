@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/auth/auth.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/forget_password.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/signup_screen.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/widgets.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
+import 'package:food_delivery_app/presentation/pages/home/home_page.dart';
+import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({super.key});
@@ -61,7 +64,17 @@ class LogInScreen extends StatelessWidget {
               khight,
               GreenButton(
                 text: 'Log In',
-                onPress: () {},
+                onPress: () {
+                  // Auth().createUserWithEmailAndPassword(
+                  //     email: emailController.text,
+                  //     password: passwordController.text);
+
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CustomBottomnavigation(),
+                      ));
+                },
               ),
               khight20,
               const Text('Or, Sign in with'),
