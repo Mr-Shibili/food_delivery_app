@@ -1,3 +1,5 @@
+import 'dart:developer';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/create_a%20_new_password.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
@@ -14,6 +16,28 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  final dio = Dio();
+
+  String endpoint = 'http://65.2.169.235:8000/user/register';
+
+  void request(requestData) async {
+    var response;
+    try {
+      response = await dio.post(endpoint, data: requestData);
+      // Handle the response
+      if (response.statusCode == 200) {
+        // Successful request
+        print(response.data);
+      } else {
+        // Handle errors
+        print('Request failed with status: ${response.statusCode}');
+      }
+    } catch (error) {
+      // Handle exceptions
+      log('Error: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,11 +93,22 @@ class SignUpScreen extends StatelessWidget {
                 GreenButton(
                     text: 'Sign up',
                     onPress: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => OtpVerification(),
-                          ));
+                      Map<String, dynamic> requestData = {
+                        "username": "userafthab1",
+                        "email": "mohammedafthab15@gmail.com",
+                        "password": "afthab12345",
+                        "phone": "97419095"
+                      };
+
+                      print(requestData);
+
+                      request(requestData);
+
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => OtpVerification(),
+                      //     ));
                     }),
                 khight,
                 Text('Joined as before?')

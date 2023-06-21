@@ -46,7 +46,7 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
                 Row(
                   children: [
                     SizedBox(
-                      width: 280,
+                      width: 250,
                       child: const CustomTextfield(
                           hint: 'Mobile Number',
                           inputType: TextInputType.number),
@@ -63,7 +63,7 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
                 Row(
                   children: [
                     SizedBox(
-                      width: 280,
+                      width: 250,
                       child: const CustomTextfield(
                           hint: 'Email Id', inputType: TextInputType.text),
                     ),

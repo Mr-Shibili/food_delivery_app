@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
+import 'package:food_delivery_app/presentation/pages/home/cart/cart.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/category_home.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/home_search.dart';
@@ -68,7 +69,13 @@ class MyHomePage extends StatelessWidget {
                   Badge(
                     backgroundColor: Colors.red,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CartPage(),
+                            ));
+                      },
                       child: const Icon(
                         Iconsax.bag_2,
                         color: kggreencolor,

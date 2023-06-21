@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
+import 'package:food_delivery_app/presentation/pages/home/cart/item_detailed.dart/item_page.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ItemsView extends StatelessWidget {
@@ -24,43 +25,53 @@ class ItemsView extends StatelessWidget {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10),
       itemBuilder: (context, index) {
-        return Container(
-          height: 270,
-          width: 220,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.grey[200],
+        return InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ItemDetailPage(),
+                ));
+          },
+          child: Container(
+            height: 270,
+            width: 220,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[200],
+            ),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image(
+                      height: size.height / 7,
+                      image: AssetImage(
+                        'asset/images/food-home-nanoosh-20.png',
+                      )),
+                  Text(
+                    'Lunch meal',
+                    style: mediumHead,
+                  ),
+                  Text(
+                    'small seatail',
+                    style: smallHead,
+                  ),
+                  khight,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        '₹299',
+                        style: mainHead,
+                      ),
+                      Icon(
+                        Iconsax.add_circle,
+                        color: kggreencolor,
+                      )
+                    ],
+                  )
+                ]),
           ),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Image(
-                height: size.height / 7,
-                image: AssetImage(
-                  'asset/images/food-home-nanoosh-20.png',
-                )),
-            Text(
-              'Lunch meal',
-              style: mediumHead,
-            ),
-            Text(
-              'small seatail',
-              style: smallHead,
-            ),
-            khight,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  '₹299',
-                  style: mainHead,
-                ),
-                Icon(
-                  Iconsax.add_circle,
-                  color: kggreencolor,
-                )
-              ],
-            )
-          ]),
         );
       },
     );

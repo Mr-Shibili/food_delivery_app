@@ -7,6 +7,7 @@ import 'package:food_delivery_app/presentation/pages/authentication/widgets/widg
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/home_page.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
+import 'package:dio/dio.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({super.key});
