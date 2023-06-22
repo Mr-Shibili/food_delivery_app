@@ -30,7 +30,7 @@ class HomeSearch extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.transparent),
             borderRadius: BorderRadius.circular(5.5),
           ),
-          hintText: 'Search Food and Kitchen',
+          hintText: 'Search Food....',
           contentPadding: const EdgeInsets.all(9),
           hintStyle: const TextStyle(color: Colors.blueGrey, fontSize: 14),
           filled: true,

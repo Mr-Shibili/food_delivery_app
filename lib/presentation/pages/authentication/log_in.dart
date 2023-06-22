@@ -42,7 +42,7 @@ class LogInScreen extends StatelessWidget {
               khight20,
               CustomTextfield(
                 hint: "Password",
-                controller: emailController,
+                controller: passwordController,
                 inputType: TextInputType.visiblePassword,
               ),
               Row(
@@ -66,15 +66,16 @@ class LogInScreen extends StatelessWidget {
               GreenButton(
                 text: 'Log In',
                 onPress: () {
-                  // Auth().createUserWithEmailAndPassword(
-                  //     email: emailController.text,
-                  //     password: passwordController.text);
+                  Auth().signInWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text,
+                      context: context);
 
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CustomBottomnavigation(),
-                      ));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => CustomBottomnavigation(),
+                  //     ));
                 },
               ),
               khight20,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/auth/auth.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/widgets.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
@@ -21,6 +22,20 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white10,
+        elevation: 0,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Auth().signOut();
+              },
+              icon: Icon(
+                Icons.logout,
+                color: Colors.red,
+              ))
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -28,7 +43,7 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
             child: Column(
               children: [
                 const CircleAvatar(
-                  maxRadius: 100,
+                  maxRadius: 80,
                   child: Icon(
                     Icons.person,
                     size: 100,

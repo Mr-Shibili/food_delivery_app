@@ -107,7 +107,7 @@ class ItemDetailPage extends StatelessWidget {
                     ),
                     khight,
                     Text(
-                      "Tapping for you",
+                      "Topping for you",
                       style: mainHead,
                     ),
                     khight,
@@ -119,7 +119,7 @@ class ItemDetailPage extends StatelessWidget {
                     CustomChip(items: items),
                     khight40,
                     GreenButton(
-                      text: 'Proceed Order',
+                      text: 'Add to cart',
                       onPress: () {},
                     ),
                     khight

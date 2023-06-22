@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/cart/cart.dart';
+import 'package:food_delivery_app/presentation/pages/home/widgets/categorie.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/category_home.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/home_search.dart';
@@ -13,7 +14,16 @@ import 'package:iconsax/iconsax.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
   final TextEditingController searchController = TextEditingController();
-  final List<String> categories = ['Breakfast', 'Meals', 'Dessert', 'pizza'];
+  final List<String> categories = [
+    'Breakfast',
+    'Meals',
+    'Dessert',
+    'pizza',
+    'Breakfast',
+    'Meals',
+    'Dessert',
+    'pizza'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -87,34 +97,52 @@ class MyHomePage extends StatelessWidget {
               khight,
               HomeSearch(searchController: searchController),
               khight,
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Categories',
                     style: mediumHead,
                   ),
-                  Text(
-                    'See all',
-                    style: smallgreenText,
-                  )
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CategoriesPage(
+                                  categories: categories, initialIndex: 2),
+                            ));
+                      },
+                      child: Text(
+                        'See all',
+                        style: smallgreenText,
+                      ))
                 ],
               ),
               khight,
               CategoryHome(categories: categories),
               OfferCards(categories: categories, size: size),
               khight,
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Kitchen near your',
+                    'Popular foods',
                     style: mediumHead,
                   ),
-                  Text(
-                    'See all',
-                    style: smallgreenText,
-                  )
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CategoriesPage(
+                                  categories: categories, initialIndex: 0),
+                            ));
+                      },
+                      child: Text(
+                        'See all',
+                        style: smallgreenText,
+                      ))
                 ],
               ),
               khight,

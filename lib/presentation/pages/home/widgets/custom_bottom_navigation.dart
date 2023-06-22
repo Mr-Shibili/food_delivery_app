@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/presentation/pages/Orders/orders.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/home_page.dart';
 import 'package:food_delivery_app/presentation/pages/profile/profile_view_and_edit.dart';
@@ -18,7 +19,7 @@ class _CustomBottomnavigationState extends State<CustomBottomnavigation> {
 
   final pages = [
     MyHomePage(),
-    MyHomePage(),
+    OrdersPage(),
     MyHomePage(),
     MyHomePage(),
     ProfileViewAndEdit()

@@ -53,7 +53,7 @@ class ItemsView extends StatelessWidget {
                     style: mediumHead,
                   ),
                   Text(
-                    'small seatail',
+                    'small detail',
                     style: smallHead,
                   ),
                   khight,

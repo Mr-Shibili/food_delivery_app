@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
+import 'package:food_delivery_app/presentation/pages/home/widgets/category_grid.dart';
 
 class CategoryHome extends StatelessWidget {
   const CategoryHome({
@@ -20,17 +21,9 @@ class CategoryHome extends StatelessWidget {
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (context, index) => Container(
           width: 90,
-          child: Column(
-            children: [
-              CircleAvatar(
-                maxRadius: 30,
-                child: Image(
-                    image: AssetImage(
-                        'asset/images/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png')),
-              ),
-              khight,
-              Text(categories[index]),
-            ],
+          child: CategoryGrid(
+            categories: categories,
+            index: index,
           ),
         ),
       ),
