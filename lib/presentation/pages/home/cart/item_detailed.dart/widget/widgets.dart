@@ -20,7 +20,7 @@ class IconWithText extends StatelessWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Icon(
           icon,
-          color: Color.fromARGB(255, 244, 210, 59),
+          color: const Color.fromARGB(255, 244, 210, 59),
           size: 18,
         ),
         Text(

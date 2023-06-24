@@ -23,16 +23,21 @@ class ItemDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Iconsax.back_square,
-          color: kggreencolor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Iconsax.back_square,
+            color: kggreencolor,
+          ),
         ),
         title: Text(
           title,
           style: mainHead.copyWith(color: Colors.black),
         ),
         centerTitle: true,
-        actions: [
+        actions: const [
           Icon(
             Iconsax.menu_1,
             color: kggreencolor,
@@ -40,12 +45,12 @@ class ItemDetailPage extends StatelessWidget {
           kwidth
         ],
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white10,
       ),
       body: SafeArea(
           child: Column(
         children: [
-          Expanded(
+          const Expanded(
             child: Image(
                 image: AssetImage(
                     'asset/images/purepng.com-fast-food-burgerburgerfast-foodhammeatfast-food-burgermc-donaldsburger-king-231519340212qzreu.png')),
@@ -59,7 +64,7 @@ class ItemDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     khight20,
-                    Center(
+                    const Center(
                       child: SizedBox(
                           height: 40, width: 140, child: CartItemController()),
                     ),
@@ -67,18 +72,18 @@ class ItemDetailPage extends StatelessWidget {
                     Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text(
+                        const Text(
                           'The Cheese burger',
                           style: mediumHead,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10)),
-                          child: Icon(
+                          child: const Icon(
                             Iconsax.heart5,
                             color: kredcolor,
                           ),
@@ -96,22 +101,22 @@ class ItemDetailPage extends StatelessWidget {
                       ],
                     ),
                     khight,
-                    Text(
+                    const Text(
                       "Details",
                       style: mainHead,
                     ),
                     khight,
-                    Text(
+                    const Text(
                       'details of food ',
                       style: smallgrey12,
                     ),
                     khight,
-                    Text(
+                    const Text(
                       "Topping for you",
                       style: mainHead,
                     ),
                     khight,
-                    Text(
+                    const Text(
                       'Choose your best pair',
                       style: smallgrey12,
                     ),

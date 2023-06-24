@@ -6,7 +6,7 @@ import 'package:food_delivery_app/presentation/pages/profile/profile_view_and_ed
 import 'package:iconsax/iconsax.dart';
 
 class CustomBottomnavigation extends StatefulWidget {
-  CustomBottomnavigation({
+  const CustomBottomnavigation({
     super.key,
   });
 
@@ -22,7 +22,7 @@ class _CustomBottomnavigationState extends State<CustomBottomnavigation> {
     OrdersPage(),
     MyHomePage(),
     MyHomePage(),
-    ProfileViewAndEdit()
+    const ProfileViewAndEdit()
   ];
 
   @override
@@ -42,29 +42,29 @@ class _CustomBottomnavigationState extends State<CustomBottomnavigation> {
             BottomNavigationBarItem(
                 label: 'Home',
                 backgroundColor: Colors.grey[200],
-                icon: Icon(
+                icon: const Icon(
                   Iconsax.home,
                   color: Colors.black,
                 )),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 label: 'Orders',
                 icon: Icon(
                   Iconsax.receipt_item,
                   color: Colors.black,
                 )),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 label: 'Message',
                 icon: Icon(
                   Iconsax.message,
                   color: Colors.black,
                 )),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 label: 'Wallet',
                 icon: Icon(
                   Iconsax.wallet,
                   color: Colors.black,
                 )),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 label: 'Profile',
                 icon: Icon(
                   Iconsax.user,

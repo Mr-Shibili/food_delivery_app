@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:food_delivery_app/presentation/pages/authentication/create_a%20_new_password.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/log_in.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/otp_box.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/widgets.dart';
@@ -79,7 +77,9 @@ class OtpVerification extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LogInScreen(),
+                                builder: (context) => LogInScreen(
+                                  onTap: () {},
+                                ),
                               ));
                         })
                   ],

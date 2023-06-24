@@ -20,19 +20,21 @@ class NewPassword extends StatelessWidget {
                 image: const AssetImage('asset/images/newpass.png'),
                 height: size.height / 2.5,
               ),
-              Text(
+              const Text(
                 'Create a new password',
                 style: mainHead,
               ),
               khight40,
-              const CustomTextfield(
+              CustomTextfield(
+                password: true,
                 hint: 'New Password',
-                inputType: TextInputType.visiblePassword,
+                inputType: TextInputType.text,
               ),
               khight20,
-              const CustomTextfield(
+              CustomTextfield(
+                  password: true,
                   hint: 'Confirm Password',
-                  inputType: TextInputType.visiblePassword),
+                  inputType: TextInputType.text),
               khight40,
               GreenButton(text: 'Done', onPress: () {})
             ],

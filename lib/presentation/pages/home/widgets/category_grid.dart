@@ -16,7 +16,7 @@ class CategoryGrid extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           maxRadius: 30,
           child: Image(
               image: AssetImage(

@@ -16,7 +16,7 @@ class ItemsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: categories.length,
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -45,19 +45,19 @@ class ItemsView extends StatelessWidget {
                 children: [
                   Image(
                       height: size.height / 7,
-                      image: AssetImage(
+                      image: const AssetImage(
                         'asset/images/food-home-nanoosh-20.png',
                       )),
-                  Text(
+                  const Text(
                     'Lunch meal',
                     style: mediumHead,
                   ),
-                  Text(
+                  const Text(
                     'small detail',
                     style: smallHead,
                   ),
                   khight,
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(

@@ -12,16 +12,21 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Iconsax.back_square,
-          color: kggreencolor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Iconsax.back_square,
+            color: kggreencolor,
+          ),
         ),
         title: Text(
           title,
           style: mainHead.copyWith(color: Colors.black),
         ),
         centerTitle: true,
-        actions: [
+        actions: const [
           Icon(
             Iconsax.menu_1,
             color: kggreencolor,
@@ -47,7 +52,7 @@ class CartPage extends StatelessWidget {
                       key: ValueKey(index),
                       background: Container(
                         color: Colors.red,
-                        child: Icon(
+                        child: const Icon(
                           Iconsax.trash,
                           color: Colors.white,
                         ),
@@ -60,14 +65,14 @@ class CartPage extends StatelessWidget {
                       child: Container(
                         decoration: kboxStyle,
                         child: ListTile(
-                          leading: CircleAvatar(
+                          leading: const CircleAvatar(
+                            maxRadius: 35,
                             child: Image(
                                 image: AssetImage(
                                     'asset/images/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png')),
-                            maxRadius: 35,
                           ),
                           title: Text('Chicken burger large  ${items[index]}'),
-                          subtitle: Column(
+                          subtitle: const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text('Burger&salads'),
@@ -86,7 +91,7 @@ class CartPage extends StatelessWidget {
                     );
                   }),
             ),
-            Container(
+            SizedBox(
               height: 300,
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -94,7 +99,7 @@ class CartPage extends StatelessWidget {
                     Container(
                       height: 50,
                       decoration: kboxStyle,
-                      child: Row(
+                      child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Icon(
@@ -114,8 +119,8 @@ class CartPage extends StatelessWidget {
                     Container(
                       height: 130,
                       decoration: kboxStyle,
-                      child: Padding(
-                        padding: const EdgeInsets.all(12),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

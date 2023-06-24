@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/presentation/pages/authentication/log_in.dart';
-import 'package:food_delivery_app/presentation/pages/authentication/signup_screen.dart';
-import 'package:food_delivery_app/presentation/pages/home/home_page.dart';
+import 'package:food_delivery_app/presentation/pages/authentication/login_or_register_page.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
 
 class AuthPage extends StatelessWidget {
@@ -16,12 +14,12 @@ class AuthPage extends StatelessWidget {
         builder: (context, snapshot) {
           //log in
           if (snapshot.hasData) {
-            return CustomBottomnavigation();
+            return const CustomBottomnavigation();
           }
 
           //not log in
           else {
-            return LogInScreen();
+            return const LoginOrRegister();
           }
         },
       ),

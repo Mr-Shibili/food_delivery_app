@@ -18,11 +18,11 @@ class HomeSearch extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(5.5)),
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Iconsax.search_normal,
             color: kggreencolor,
           ),
-          suffixIcon: Icon(
+          suffixIcon: const Icon(
             Icons.filter_list_outlined,
             color: kggreencolor,
           ),

@@ -5,7 +5,7 @@ import 'package:food_delivery_app/presentation/pages/authentication/widgets/widg
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 
 class ProfileViewAndEdit extends StatefulWidget {
-  ProfileViewAndEdit({super.key});
+  const ProfileViewAndEdit({super.key});
 
   @override
   State<ProfileViewAndEdit> createState() => _ProfileViewAndEditState();
@@ -30,7 +30,7 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
               onPressed: () {
                 Auth().signOut();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.logout,
                 color: Colors.red,
               ))
@@ -50,25 +50,28 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
                   ),
                 ),
                 khight,
-                Text(
+                const Text(
                   'Change photo',
                   style: mainHead,
                 ),
                 khight20,
-                const CustomTextfield(
-                    hint: 'Name', inputType: TextInputType.text),
+                CustomTextfield(
+                    password: false,
+                    hint: 'Name',
+                    inputType: TextInputType.text),
                 khight20,
                 Row(
                   children: [
                     SizedBox(
                       width: 250,
-                      child: const CustomTextfield(
+                      child: CustomTextfield(
+                          password: false,
                           hint: 'Mobile Number',
                           inputType: TextInputType.number),
                     ),
                     TextButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'CHANGE',
                           style: TextStyle(color: kredcolor),
                         ))
@@ -79,12 +82,14 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
                   children: [
                     SizedBox(
                       width: 250,
-                      child: const CustomTextfield(
-                          hint: 'Email Id', inputType: TextInputType.text),
+                      child: CustomTextfield(
+                          password: false,
+                          hint: 'Email Id',
+                          inputType: TextInputType.text),
                     ),
                     TextButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'CHANGE',
                           style: TextStyle(color: kredcolor),
                         ))
@@ -92,7 +97,9 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
                 ),
                 khight20,
                 CustomTextfield(
-                    hint: 'Birthday', inputType: TextInputType.datetime),
+                    password: false,
+                    hint: 'Birthday',
+                    inputType: TextInputType.datetime),
                 khight20,
                 DecoratedBox(
                   decoration: BoxDecoration(
@@ -100,30 +107,34 @@ class _ProfileViewAndEditState extends State<ProfileViewAndEdit> {
                       color: Colors.grey[200]),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10, right: 10),
-                    child: DropdownButton<String>(
-                      hint: const Text(
-                        'Gender',
-                        style: mainHead,
-                      ),
-                      value: dropdownValue,
-                      icon: const Icon(Icons.arrow_drop_down),
-                      style: const TextStyle(color: Colors.deepPurple),
-                      onChanged: (String? value) {
-                        // This is called when the user selects an item.
-                        setState(
-                          () {
-                            dropdownValue = value!;
-                          },
-                        );
-                      },
-                      items: gender.map<DropdownMenuItem<String>>(
-                        (String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        padding: const EdgeInsets.all(0),
+                        elevation: 0,
+                        hint: const Text(
+                          'Gender',
+                          style: mainHead,
+                        ),
+                        value: dropdownValue,
+                        icon: const Icon(Icons.arrow_drop_down),
+                        style: const TextStyle(color: Colors.deepPurple),
+                        onChanged: (String? value) {
+                          // This is called when the user selects an item.
+                          setState(
+                            () {
+                              dropdownValue = value!;
+                            },
                           );
                         },
-                      ).toList(),
+                        items: gender.map<DropdownMenuItem<String>>(
+                          (String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          },
+                        ).toList(),
+                      ),
                     ),
                   ),
                 ),

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
-import 'package:food_delivery_app/presentation/pages/home/widgets/category_grid.dart';
-import 'package:food_delivery_app/presentation/pages/home/widgets/category_home.dart';
-import 'package:food_delivery_app/presentation/pages/home/widgets/home_search.dart';
-import 'package:http/http.dart';
 import 'package:iconsax/iconsax.dart';
 
 class OrdersPage extends StatefulWidget {
@@ -37,7 +33,7 @@ class _OrdersPageState extends State<OrdersPage> {
               ),
               centerTitle: true,
               elevation: 0,
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.white10,
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -48,7 +44,7 @@ class _OrdersPageState extends State<OrdersPage> {
                   child: AppBar(
                     backgroundColor: Colors.white10,
                     elevation: 0,
-                    bottom: TabBar(
+                    bottom: const TabBar(
                       indicatorColor: kggreencolor,
                       labelColor: Colors.black,
                       unselectedLabelColor: kgreycolor,
@@ -86,7 +82,7 @@ class _OrdersPageState extends State<OrdersPage> {
                                   children: [
                                     Row(
                                       children: [
-                                        Image(
+                                        const Image(
                                             height: 80,
                                             image: AssetImage(
                                                 'asset/images/food-home-nanoosh-20.png')),
@@ -96,28 +92,28 @@ class _OrdersPageState extends State<OrdersPage> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Text(
+                                              const Text(
                                                 'Special Sandwitch',
                                                 style: mediumHead,
                                               ),
-                                              Text('3 items | 2.4km'),
+                                              const Text('3 items | 2.4km'),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceAround,
                                                 children: [
-                                                  Text(
+                                                  const Text(
                                                     '₹ 200',
                                                     style: mediumHead,
                                                   ),
-                                                  Container(
+                                                  SizedBox(
                                                     height: 20,
                                                     width: 60,
                                                     child: ElevatedButton(
                                                         style: ButtonStyle(
                                                           padding:
                                                               MaterialStateProperty
-                                                                  .all(EdgeInsets
+                                                                  .all(const EdgeInsets
                                                                       .all(0)),
                                                           backgroundColor:
                                                               MaterialStateProperty
@@ -125,7 +121,7 @@ class _OrdersPageState extends State<OrdersPage> {
                                                                       .green),
                                                         ),
                                                         onPressed: () {},
-                                                        child: Text(
+                                                        child: const Text(
                                                           'Paid',
                                                           style: smallHead,
                                                         )),
@@ -137,12 +133,12 @@ class _OrdersPageState extends State<OrdersPage> {
                                         )
                                       ],
                                     ),
-                                    Divider(),
+                                    const Divider(),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           height: 25,
                                           width: 100,
                                           child: ElevatedButton(
@@ -163,20 +159,20 @@ class _OrdersPageState extends State<OrdersPage> {
                                                 ),
                                                 padding:
                                                     MaterialStateProperty.all(
-                                                        EdgeInsets.all(0)),
+                                                        const EdgeInsets.all(0)),
                                                 backgroundColor:
                                                     MaterialStateProperty.all(
                                                         Colors.white),
                                               ),
                                               onPressed: () {},
-                                              child: Text(
+                                              child: const Text(
                                                 'Leave a review',
                                                 style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 12),
                                               )),
                                         ),
-                                        Container(
+                                        SizedBox(
                                           height: 25,
                                           width: 100,
                                           child: ElevatedButton(
@@ -194,7 +190,7 @@ class _OrdersPageState extends State<OrdersPage> {
                                                         Colors.green),
                                               ),
                                               onPressed: () {},
-                                              child: Text(
+                                              child: const Text(
                                                 'Track Driver',
                                                 style: smallTextBlack,
                                               )),
@@ -207,14 +203,14 @@ class _OrdersPageState extends State<OrdersPage> {
                         },
                       ),
                       Container(
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             '2',
                           ),
                         ),
                       ),
                       Container(
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             '3',
                           ),

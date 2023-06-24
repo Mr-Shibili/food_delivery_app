@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/auth/auth.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/forget_password.dart';
-import 'package:food_delivery_app/presentation/pages/authentication/signup_screen.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/widgets.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
-import 'package:food_delivery_app/presentation/pages/home/home_page.dart';
-import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
-import 'package:dio/dio.dart';
 
 class LogInScreen extends StatelessWidget {
-  LogInScreen({super.key});
+  LogInScreen({super.key, required this.onTap});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -35,15 +31,17 @@ class LogInScreen extends StatelessWidget {
               ),
               khight20,
               CustomTextfield(
+                password: false,
                 hint: "Email ID/User Name",
                 controller: emailController,
                 inputType: TextInputType.emailAddress,
               ),
               khight20,
               CustomTextfield(
+                password: true,
                 hint: "Password",
                 controller: passwordController,
-                inputType: TextInputType.visiblePassword,
+                inputType: TextInputType.text,
               ),
               Row(
                 children: [
@@ -70,12 +68,6 @@ class LogInScreen extends StatelessWidget {
                       email: emailController.text,
                       password: passwordController.text,
                       context: context);
-
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => CustomBottomnavigation(),
-                  //     ));
                 },
               ),
               khight20,
@@ -88,10 +80,11 @@ class LogInScreen extends StatelessWidget {
                     path:
                         'asset/images/24683-2-facebook-logo-photos_400x400.png',
                   ),
-                  Squaretile(
-                      path:
-                          "asset/images/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png"),
+                  // Squaretile(
+                  //     path:
+                  //         "asset/images/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png"),
                   Squaretile(path: "asset/images/GOOG-0ed88f7c.png"),
+                  Squaretile(path: "asset/images/sms-icon-5461.png")
                 ],
               ),
               Row(
@@ -99,16 +92,13 @@ class LogInScreen extends StatelessWidget {
                 children: [
                   const Text('New to here!'),
                   TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignUpScreen(),
-                            ));
-                      },
-                      child: const Text(
-                        'Register',
-                        style: TextStyle(color: Colors.orange),
+                      onPressed: onTap,
+                      child: GestureDetector(
+                        onTap: onTap,
+                        child: const Text(
+                          'Register',
+                          style: TextStyle(color: Colors.orange),
+                        ),
                       )),
                 ],
               )

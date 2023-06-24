@@ -35,8 +35,10 @@ class ForgetPassword extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             khight40,
-            const CustomTextfield(
-                hint: 'Enter email', inputType: TextInputType.emailAddress),
+            CustomTextfield(
+                password: true,
+                hint: 'Enter email',
+                inputType: TextInputType.emailAddress),
             khight40,
             GreenButton(
                 text: "Send Email",

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/cart/cart.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/categorie.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/category_home.dart';
-import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/home_search.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/offer_card.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/items_view.dart';
@@ -100,7 +98,7 @@ class MyHomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Categories',
                     style: mediumHead,
                   ),
@@ -110,10 +108,10 @@ class MyHomePage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => CategoriesPage(
-                                  categories: categories, initialIndex: 2),
+                                  categories: categories, initialIndex: 0),
                             ));
                       },
-                      child: Text(
+                      child: const Text(
                         'See all',
                         style: smallgreenText,
                       ))
@@ -126,7 +124,7 @@ class MyHomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Popular foods',
                     style: mediumHead,
                   ),
@@ -136,10 +134,10 @@ class MyHomePage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => CategoriesPage(
-                                  categories: categories, initialIndex: 0),
+                                  categories: categories, initialIndex: 1),
                             ));
                       },
-                      child: Text(
+                      child: const Text(
                         'See all',
                         style: smallgreenText,
                       ))

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
@@ -13,7 +14,7 @@ class Auth {
     showDialog(
       context: context,
       builder: (context) {
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       },
     );
     try {
@@ -22,52 +23,68 @@ class Auth {
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      if (e.code == 'user-not-found') {
-        print('user name error');
-        wrongEmail(context);
-      } else if (e.code == 'wrong-password') {
-        wrongPass(context);
-        print('password error');
-      }
+
+      showError(context, e.code);
     }
-
-    print('Worked');
   }
 
-  void wrongEmail(context) {
+  void showError(context, String error) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(
-            'Error Email',
-            style: TextStyle(color: kredcolor),
+          backgroundColor: Colors.red,
+          title: Center(
+            child: Text(
+              error,
+              style: const TextStyle(color: kwhitwcolor),
+            ),
           ),
         );
       },
     );
   }
 
-  void wrongPass(context) {
+  Future<void> signUp(
+      {required String email,
+      required String password,
+      required String rePassword,
+      required String username,
+      required String mobile,
+      required context}) async {
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: Text(
-            'Error Password',
-            style: TextStyle(color: kredcolor),
-          ),
-        );
+        return const Center(child: CircularProgressIndicator());
       },
     );
+    try {
+      if (password == rePassword) {
+        await _firebaseAuth.createUserWithEmailAndPassword(
+            email: email, password: password);
+        addUserDetails(email, username, int.parse(mobile), password);
+        Navigator.pop(context);
+      } else {
+        showError(context, "Password don't match!");
+        Navigator.pop(context);
+      }
+    } on FirebaseAuthException catch (e) {
+      showError(context, e.code);
+      Navigator.pop(context);
+    } on FirebaseException catch (e) {
+      showError(context, e.code);
+      Navigator.pop(context);
+    }
   }
 
-  Future<void> createUserWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
-    final user = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: password);
+  Future<void> addUserDetails(
+      String email, String username, int mobile, String password) async {
+    await FirebaseFirestore.instance.collection('users').add({
+      'email': email,
+      'usename': username,
+      'mobile': mobile,
+      'password': password,
+    });
   }
 
   Future<void> signOut() async {

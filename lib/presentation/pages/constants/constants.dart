@@ -9,6 +9,7 @@ const khight60 = SizedBox(height: 60);
 const kgreycolor = Colors.grey;
 const kggreencolor = Colors.green;
 const kredcolor = Colors.red;
+const kwhitwcolor = Colors.white;
 
 //style
 

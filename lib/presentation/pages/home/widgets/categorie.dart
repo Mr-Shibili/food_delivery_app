@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/category_grid.dart';
-import 'package:food_delivery_app/presentation/pages/home/widgets/category_home.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/home_search.dart';
-import 'package:http/http.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CategoriesPage extends StatefulWidget {
@@ -30,9 +28,14 @@ class _CategoriesPageState extends State<CategoriesPage> {
         initialIndex: widget.initialIndex,
         child: Scaffold(
             appBar: AppBar(
-              leading: const Icon(
-                Iconsax.back_square,
-                color: kggreencolor,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Iconsax.back_square,
+                  color: kggreencolor,
+                ),
               ),
               title: Text(
                 'Categories',
@@ -52,7 +55,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                   child: AppBar(
                     backgroundColor: Colors.white10,
                     elevation: 0,
-                    bottom: TabBar(
+                    bottom: const TabBar(
                       indicatorColor: kggreencolor,
                       labelColor: Colors.black,
                       unselectedLabelColor: kgreycolor,
@@ -82,7 +85,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                             child: GridView.builder(
                           itemCount: widget.categories.length,
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 3,
                                   childAspectRatio: 2 / 2.1,
                                   crossAxisSpacing: 10,
@@ -95,14 +98,14 @@ class _CategoriesPageState extends State<CategoriesPage> {
                         )),
                       ),
                       Container(
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             '2',
                           ),
                         ),
                       ),
                       Container(
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             '3',
                           ),

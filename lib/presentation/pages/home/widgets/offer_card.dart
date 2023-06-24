@@ -19,12 +19,12 @@ class OfferCards extends StatelessWidget {
         itemCount: categories.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => Container(
+        itemBuilder: (context, index) => SizedBox(
             width: 250,
             child: Card(
               color: index % 2 == 0
                   ? Colors.black
-                  : Color.fromARGB(255, 148, 16, 6),
+                  : const Color.fromARGB(255, 148, 16, 6),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

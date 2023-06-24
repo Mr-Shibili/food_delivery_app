@@ -39,7 +39,7 @@ class _CartItemControllerState extends State<CartItemController> {
               countMinus();
               setState(() {});
             },
-            icon: Icon(Icons.remove)),
+            icon: const Icon(Icons.remove)),
         kwidth,
         Text(item.toString()),
         kwidth,
@@ -48,7 +48,7 @@ class _CartItemControllerState extends State<CartItemController> {
               countPlus();
               setState(() {});
             },
-            icon: Icon(Icons.add))
+            icon: const Icon(Icons.add))
       ]),
     );
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 
 class CustomChip extends StatefulWidget {
-  CustomChip({
+  const CustomChip({
     super.key,
     required this.items,
   });
@@ -23,7 +23,7 @@ class _CustomChipState extends State<CustomChip> {
       children: List.generate(4, (int index) {
         return ChoiceChip(
             selectedColor: kggreencolor,
-            avatar: CircleAvatar(
+            avatar: const CircleAvatar(
               child: Image(
                   image: AssetImage(
                       'asset/images/purepng.com-fast-food-burgerburgerfast-foodhammeatfast-food-burgermc-donaldsburger-king-231519340212qzreu.png')),

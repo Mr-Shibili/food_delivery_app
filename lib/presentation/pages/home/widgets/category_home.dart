@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/category_grid.dart';
+import 'package:food_delivery_app/presentation/pages/home/widgets/category_list.dart';
 
 class CategoryHome extends StatelessWidget {
   const CategoryHome({
@@ -18,12 +18,21 @@ class CategoryHome extends StatelessWidget {
         itemCount: categories.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) => Divider(),
-        itemBuilder: (context, index) => Container(
+        separatorBuilder: (context, index) => const Divider(),
+        itemBuilder: (context, index) => SizedBox(
           width: 90,
-          child: CategoryGrid(
-            categories: categories,
-            index: index,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CategoryList(),
+                  ));
+            },
+            child: CategoryGrid(
+              categories: categories,
+              index: index,
+            ),
           ),
         ),
       ),
