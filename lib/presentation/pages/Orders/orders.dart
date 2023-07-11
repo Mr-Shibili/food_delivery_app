@@ -100,7 +100,7 @@ class _OrdersPageState extends State<OrdersPage> {
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
-                                                        .spaceAround,
+                                                        .spaceBetween,
                                                 children: [
                                                   const Text(
                                                     '₹ 200',
@@ -112,8 +112,8 @@ class _OrdersPageState extends State<OrdersPage> {
                                                     child: ElevatedButton(
                                                         style: ButtonStyle(
                                                           padding:
-                                                              MaterialStateProperty
-                                                                  .all(const EdgeInsets
+                                                              MaterialStateProperty.all(
+                                                                  const EdgeInsets
                                                                       .all(0)),
                                                           backgroundColor:
                                                               MaterialStateProperty
@@ -135,43 +135,43 @@ class _OrdersPageState extends State<OrdersPage> {
                                     ),
                                     const Divider(),
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        SizedBox(
-                                          height: 25,
-                                          width: 100,
-                                          child: ElevatedButton(
-                                              style: ButtonStyle(
-                                                shape:
-                                                    MaterialStateProperty.all(
-                                                  RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  ),
-                                                ),
-                                                side: MaterialStateProperty.all(
-                                                  const BorderSide(
-                                                    color: kggreencolor,
-                                                    width: 2,
-                                                  ),
-                                                ),
-                                                padding:
-                                                    MaterialStateProperty.all(
-                                                        const EdgeInsets.all(0)),
-                                                backgroundColor:
-                                                    MaterialStateProperty.all(
-                                                        Colors.white),
-                                              ),
-                                              onPressed: () {},
-                                              child: const Text(
-                                                'Leave a review',
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 12),
-                                              )),
-                                        ),
+                                        // SizedBox(
+                                        //   height: 25,
+                                        //   width: 100,
+                                        //   child: ElevatedButton(
+                                        //       style: ButtonStyle(
+                                        //         shape:
+                                        //             MaterialStateProperty.all(
+                                        //           RoundedRectangleBorder(
+                                        //             borderRadius:
+                                        //                 BorderRadius.circular(
+                                        //                     30),
+                                        //           ),
+                                        //         ),
+                                        //         side: MaterialStateProperty.all(
+                                        //           const BorderSide(
+                                        //             color: kggreencolor,
+                                        //             width: 2,
+                                        //           ),
+                                        //         ),
+                                        //         padding:
+                                        //             MaterialStateProperty.all(
+                                        //                 const EdgeInsets.all(
+                                        //                     0)),
+                                        //         backgroundColor:
+                                        //             MaterialStateProperty.all(
+                                        //                 Colors.white),
+                                        //       ),
+                                        //       onPressed: () {},
+                                        //       child: const Text(
+                                        //         'Leave a review',
+                                        //         style: TextStyle(
+                                        //             color: Colors.black,
+                                        //             fontSize: 12),
+                                        //       )),
+                                        // ),
                                         SizedBox(
                                           height: 25,
                                           width: 100,

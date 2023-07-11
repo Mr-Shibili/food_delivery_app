@@ -23,6 +23,7 @@ const smallgrey12 = TextStyle(fontSize: 12, color: kgreycolor);
 const smallHead = TextStyle(fontSize: 13, fontWeight: FontWeight.bold);
 const smallTextBlack = TextStyle(fontSize: 10, fontWeight: FontWeight.bold);
 const mediumHead = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+const mediumHead13 = TextStyle(fontSize: 13, fontWeight: FontWeight.bold);
 
 //container
 
@@ -30,3 +31,5 @@ BoxDecoration kboxStyle = BoxDecoration(
     borderRadius: BorderRadius.circular(10), color: Colors.grey[200]);
 BoxDecoration kboxStyle1 = BoxDecoration(
     borderRadius: BorderRadius.circular(10), color: Colors.grey[350]);
+BoxDecoration kboxStyle2 =
+    BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white);

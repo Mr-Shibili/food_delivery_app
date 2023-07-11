@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/presentation/pages/authentication/log_in.dart';
+import 'package:food_delivery_app/auth/auth_go.dart';
+import 'package:food_delivery_app/presentation/pages/authentication/auth_page.dart';
+import 'package:food_delivery_app/presentation/pages/authentication/create_a%20_new_password.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/otp_box.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/widgets.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
+import 'package:iconsax/iconsax.dart';
 
 class OtpVerification extends StatelessWidget {
-  OtpVerification({super.key});
+  OtpVerification({super.key, required this.isForget});
   final TextEditingController _fieldOne = TextEditingController();
   final TextEditingController _fieldTwo = TextEditingController();
   final TextEditingController _fieldThree = TextEditingController();
@@ -13,11 +16,29 @@ class OtpVerification extends StatelessWidget {
   final TextEditingController _fieldFive = TextEditingController();
   final TextEditingController _fieldSix = TextEditingController();
   String? otp;
-
+  final bool isForget;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Iconsax.back_square,
+            color: kggreencolor,
+          ),
+        ),
+        title: Text(
+          'Otp verification',
+          style: mainHead.copyWith(color: Colors.black),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.white10,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -66,21 +87,27 @@ class OtpVerification extends StatelessWidget {
                     khight40,
                     GreenButton(
                         text: 'Verify',
-                        onPress: () {
+                        onPress: () async {
                           otp = _fieldOne.text +
                               _fieldTwo.text +
                               _fieldThree.text +
                               _fieldFour.text +
                               _fieldFive.text +
                               _fieldSix.text;
+                          if (isForget == true) {
+                            await AuthGo().postOtp(otp!, context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NewPassword()));
+                          } else if (isForget == false) {
+                            await AuthGo().postOtp(otp!, context);
 
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LogInScreen(
-                                  onTap: () {},
-                                ),
-                              ));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const AuthPage()));
+                          }
                         })
                   ],
                 ),

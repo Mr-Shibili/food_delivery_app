@@ -18,9 +18,10 @@ class Auth {
       },
     );
     try {
-      final user = await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
+      UserCredential userCredential = await _firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
       Navigator.pop(context);
+      print(userCredential);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
 
@@ -60,18 +61,29 @@ class Auth {
     );
     try {
       if (password == rePassword) {
-        await _firebaseAuth.createUserWithEmailAndPassword(
-            email: email, password: password);
-        addUserDetails(email, username, int.parse(mobile), password);
+        UserCredential userCredential = await _firebaseAuth
+            .createUserWithEmailAndPassword(email: email, password: password);
+        //  addUserDetails(email, username, int.parse(mobile), password);
+
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userCredential.user!.uid)
+            .set({
+          'username': username,
+          'phoneNumber': mobile,
+        });
         Navigator.pop(context);
+        print(userCredential);
       } else {
         showError(context, "Password don't match!");
         Navigator.pop(context);
       }
     } on FirebaseAuthException catch (e) {
+      print(e.credential);
       showError(context, e.code);
       Navigator.pop(context);
     } on FirebaseException catch (e) {
+      print(e.message);
       showError(context, e.code);
       Navigator.pop(context);
     }

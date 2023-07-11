@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/auth/shared_preference.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/login_or_register_page.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/custom_bottom_navigation.dart';
 
@@ -9,8 +9,8 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
+      body: FutureBuilder(
+        future: SharedPriference().getApiToken(),
         builder: (context, snapshot) {
           //log in
           if (snapshot.hasData) {

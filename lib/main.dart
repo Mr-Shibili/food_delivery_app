@@ -1,14 +1,24 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/controller/location_controller.dart';
+import 'package:food_delivery_app/controller/profile_controller.dart';
+import 'package:food_delivery_app/controller/setting_controller.dart';
+import 'package:food_delivery_app/controller/validation.dart';
 import 'package:food_delivery_app/firebase_options.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/auth_page.dart';
 
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => ValidationController()),
+    ChangeNotifierProvider(create: (context) => SettingController()),
+    ChangeNotifierProvider(create: (context) => ProfileController()),
+    ChangeNotifierProvider(create: (context) => LocationController()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,14 +28,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        // useMaterial3: true,
         fontFamily: 'Poppins',
         brightness: Brightness.light,
-        /* light theme settings */
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        /* dark theme settings */
       ),
       themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,

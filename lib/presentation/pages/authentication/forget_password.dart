@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/presentation/pages/authentication/otp_verification.dart';
+import 'package:food_delivery_app/auth/reset_password.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/costom_text_field.dart';
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/widgets.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 
 class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
+  ForgetPassword({super.key});
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +37,33 @@ class ForgetPassword extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             khight40,
-            CustomTextfield(
-                password: true,
-                hint: 'Enter email',
-                inputType: TextInputType.emailAddress),
+            Form(
+              key: formKey,
+              child: CustomTextfield(
+                  controller: emailController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter Email";
+                    } else if (RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        .hasMatch(value)) {
+                      return null;
+                    } else {
+                      return "enter valid email";
+                    }
+                  },
+                  password: false,
+                  hint: 'Enter email',
+                  inputType: TextInputType.emailAddress),
+            ),
             khight40,
             GreenButton(
                 text: "Send Email",
-                onPress: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => OtpVerification(),
-                      ));
+                onPress: () async {
+                  if (formKey.currentState!.validate()) {
+                    await ResetPassword()
+                        .forgetPass(emailController.text, context);
+                  }
                 }),
             khight40
           ],

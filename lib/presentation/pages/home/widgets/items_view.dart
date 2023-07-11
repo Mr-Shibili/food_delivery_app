@@ -4,17 +4,14 @@ import 'package:food_delivery_app/presentation/pages/home/cart/item_detailed.dar
 import 'package:iconsax/iconsax.dart';
 
 class ItemsView extends StatelessWidget {
-  const ItemsView({
-    super.key,
-    required this.categories,
-    required this.size,
-  });
+  ItemsView({super.key, required this.categories, this.longPress});
 
   final List<String> categories;
-  final Size size;
+  Function()? longPress;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       itemCount: categories.length,
@@ -26,6 +23,7 @@ class ItemsView extends StatelessWidget {
           mainAxisSpacing: 10),
       itemBuilder: (context, index) {
         return InkWell(
+          onLongPress: longPress,
           onTap: () {
             Navigator.push(
                 context,
@@ -34,43 +32,41 @@ class ItemsView extends StatelessWidget {
                 ));
           },
           child: Container(
-            height: 270,
-            width: 220,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.grey[200],
+            decoration: kboxStyle,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image(
+                        height: size.height / 7,
+                        image: const AssetImage(
+                          'asset/images/food-home-nanoosh-20.png',
+                        )),
+                    const Text(
+                      'Lunch meal',
+                      style: mediumHead,
+                    ),
+                    const Text(
+                      'small detail',
+                      style: smallHead,
+                    ),
+                    khight,
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          '₹299',
+                          style: mainHead,
+                        ),
+                        Icon(
+                          Iconsax.add_circle,
+                          color: kggreencolor,
+                        )
+                      ],
+                    )
+                  ]),
             ),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image(
-                      height: size.height / 7,
-                      image: const AssetImage(
-                        'asset/images/food-home-nanoosh-20.png',
-                      )),
-                  const Text(
-                    'Lunch meal',
-                    style: mediumHead,
-                  ),
-                  const Text(
-                    'small detail',
-                    style: smallHead,
-                  ),
-                  khight,
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        '₹299',
-                        style: mainHead,
-                      ),
-                      Icon(
-                        Iconsax.add_circle,
-                        color: kggreencolor,
-                      )
-                    ],
-                  )
-                ]),
           ),
         );
       },

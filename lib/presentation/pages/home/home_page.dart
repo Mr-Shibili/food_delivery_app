@@ -144,7 +144,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
               khight,
-              ItemsView(categories: categories, size: size)
+              ItemsView(categories: categories)
             ],
           ),
         ),

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/Orders/orders.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/home_page.dart';
-import 'package:food_delivery_app/presentation/pages/profile/profile_view_and_edit.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../../profile/settings.dart';
 
 class CustomBottomnavigation extends StatefulWidget {
   const CustomBottomnavigation({
@@ -22,7 +23,7 @@ class _CustomBottomnavigationState extends State<CustomBottomnavigation> {
     OrdersPage(),
     MyHomePage(),
     MyHomePage(),
-    const ProfileViewAndEdit()
+    const SettingsPage()
   ];
 
   @override
