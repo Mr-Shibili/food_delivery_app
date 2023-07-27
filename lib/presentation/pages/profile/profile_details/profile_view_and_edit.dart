@@ -11,6 +11,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../auth/get_user.dart';
+
 class ProfileViewAndEdit extends StatelessWidget {
   ProfileViewAndEdit({super.key});
 
@@ -219,7 +221,7 @@ class ProfileViewAndEdit extends StatelessWidget {
                           if (formKey.currentState!.validate()) {
                             provider.edit(context);
 
-                            //  GetUser().editProfile(data, context);
+                            GetUser().editProfile(data, context);
                           }
                         })
                   ],

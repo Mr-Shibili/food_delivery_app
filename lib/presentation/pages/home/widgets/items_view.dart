@@ -39,7 +39,7 @@ class ItemsView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image(
-                        height: size.height / 7,
+                        height: size.height / 8,
                         image: const AssetImage(
                           'asset/images/food-home-nanoosh-20.png',
                         )),

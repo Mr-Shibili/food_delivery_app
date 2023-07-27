@@ -7,5 +7,5 @@ class Api {
   static const forgetPassword = '$baseUrl/forget/password';
   static const createNewPassword = '$forgetPassword/validate/newpassword';
   static const getProfile = '$baseUrl/profile/view';
-  static const editProfile = '$getProfile/edit';
+  static const editProfile = '$baseUrl/profile/edit';
 }
