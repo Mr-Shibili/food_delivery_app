@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/model/catebory_model.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/category_grid.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/home_search.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
-class CategoriesPage extends StatefulWidget {
-  const CategoriesPage({
+import '../../../../controller/category_controller.dart';
+
+class CategoriesPage extends StatelessWidget {
+  CategoriesPage({
     super.key,
-    required this.categories,
     required this.initialIndex,
   });
-  final List<String> categories;
+
   final int initialIndex;
 
-  @override
-  State<CategoriesPage> createState() => _CategoriesPageState();
-}
-
-class _CategoriesPageState extends State<CategoriesPage> {
   final TextEditingController textcontrolller = TextEditingController();
+
   TabController? tabController;
 
   @override
   Widget build(BuildContext context) {
+    final controller = context.read<CategoryController>();
     return DefaultTabController(
         length: 3,
-        initialIndex: widget.initialIndex,
+        initialIndex: initialIndex,
         child: Scaffold(
             appBar: AppBar(
               leading: IconButton(
@@ -37,10 +37,15 @@ class _CategoriesPageState extends State<CategoriesPage> {
                   color: kggreencolor,
                 ),
               ),
-              title: Text(
-                'Categories',
-                style: mainHead.copyWith(color: Colors.black),
-              ),
+              title: initialIndex == 1
+                  ? Text(
+                      'Popular Foods',
+                      style: mainHead.copyWith(color: Colors.black),
+                    )
+                  : Text(
+                      'Categories',
+                      style: mainHead.copyWith(color: Colors.black),
+                    ),
               centerTitle: true,
               elevation: 0,
               backgroundColor: Colors.white,
@@ -82,20 +87,37 @@ class _CategoriesPageState extends State<CategoriesPage> {
                       // first tab bar view widget
                       Container(
                         child: Center(
-                            child: GridView.builder(
-                          itemCount: widget.categories.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  childAspectRatio: 2 / 2.1,
-                                  crossAxisSpacing: 10,
-                                  mainAxisSpacing: 10),
-                          itemBuilder: (context, index) => Container(
-                            decoration: kboxStyle,
-                            child: CategoryGrid(
-                                categories: widget.categories, index: index),
-                          ),
-                        )),
+                            child: FutureBuilder(
+                                future: controller.getAllCategory(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return const Center(
+                                        child: CircularProgressIndicator());
+                                  } else if (snapshot.hasError) {
+                                    return const Center(
+                                        child: Text('Error fetching data'));
+                                  } else {
+                                    return GridView.builder(
+                                      itemCount:
+                                          controller.categoriesData.length,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 3,
+                                              childAspectRatio: 2 / 2.1,
+                                              crossAxisSpacing: 10,
+                                              mainAxisSpacing: 10),
+                                      itemBuilder: (context, index) =>
+                                          Container(
+                                        decoration: kboxStyle,
+                                        child: CategoryGrid(
+                                            categories:
+                                                controller.categoriesData,
+                                            index: index),
+                                      ),
+                                    );
+                                  }
+                                })),
                       ),
                       Container(
                         child: const Center(

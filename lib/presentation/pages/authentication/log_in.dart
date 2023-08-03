@@ -5,6 +5,8 @@ import 'package:food_delivery_app/presentation/pages/authentication/widgets/cost
 import 'package:food_delivery_app/presentation/pages/authentication/widgets/widgets.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 
+import '../../../auth/auth_services.dart';
+
 class LogInScreen extends StatelessWidget {
   LogInScreen({super.key, required this.onTap});
   final TextEditingController emailController = TextEditingController();
@@ -100,18 +102,23 @@ class LogInScreen extends StatelessWidget {
                 khight20,
                 const Text('Or, Sign in with'),
                 khight,
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Squaretile(
+                    const Squaretile(
                       path:
                           'asset/images/24683-2-facebook-logo-photos_400x400.png',
                     ),
                     // Squaretile(
                     //     path:
                     //         "asset/images/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png"),
-                    Squaretile(path: "asset/images/GOOG-0ed88f7c.png"),
-                    Squaretile(path: "asset/images/sms-icon-5461.png")
+                    GestureDetector(
+                        onTap: () {
+                          AuthServices().signInWithGoogle();
+                        },
+                        child: const Squaretile(
+                            path: "asset/images/GOOG-0ed88f7c.png")),
+                    const Squaretile(path: "asset/images/sms-icon-5461.png")
                   ],
                 ),
                 Row(

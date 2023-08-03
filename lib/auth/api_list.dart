@@ -1,11 +1,15 @@
 class Api {
   static const key = 'AIzaSyCrbXVcED8wPQfMsOXQu-uIrFOUek4Ftgc';
-  static const baseUrl = 'http://3.110.170.212:8000/user';
-  static const register = '$baseUrl/register';
-  static const otpEmail = '$register/validate';
-  static const signIn = '$baseUrl/login';
-  static const forgetPassword = '$baseUrl/forget/password';
-  static const createNewPassword = '$forgetPassword/validate/newpassword';
-  static const getProfile = '$baseUrl/profile/view';
-  static const editProfile = '$baseUrl/profile/edit';
+  static const baseUrl = 'http://3.110.170.212:8000';
+  static const register = '$baseUrl/user/register';
+  static const otpEmail = '$register/user/register/validate';
+  static const signIn = '$baseUrl/user/login';
+  static const forgetPassword = '$baseUrl/user/forget/password';
+  static const createNewPassword =
+      '$forgetPassword/user/forget/password/validate';
+  static const getProfile = '$baseUrl/user/profile/view';
+  static const editProfile = '$baseUrl/user/profile/edit';
+  static const getCategories = '$baseUrl/category/view';
+  static const getProduct = '$baseUrl/product/view';
+  static const getAProduct = '$baseUrl/product/view/id?id=';
 }

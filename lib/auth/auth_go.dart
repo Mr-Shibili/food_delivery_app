@@ -159,6 +159,7 @@ class AuthGo {
       }
       if (response.statusCode == 200) {
         // log(data['err']);
+
         final String token = data['data']['accesstoken'];
         await SharedPriference().setApiToken(token);
         // Request successful

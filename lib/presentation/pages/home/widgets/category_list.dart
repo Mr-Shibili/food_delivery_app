@@ -8,13 +8,6 @@ class CategoryList extends StatelessWidget {
   CategoryList({
     super.key,
   });
-  final List<String> foods = [
-    'Big b burger',
-    'Veg burger',
-    'Cheese burger',
-    'Cheese burger',
-    'Cheese burger',
-  ];
 
   final TextEditingController textcontrolller = TextEditingController();
 
@@ -47,7 +40,7 @@ class CategoryList extends StatelessWidget {
             Expanded(
               child: Center(
                   child: GridView.builder(
-                itemCount: foods.length,
+                itemCount: 5,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 2 / 2.1,
@@ -55,7 +48,7 @@ class CategoryList extends StatelessWidget {
                     mainAxisSpacing: 10),
                 itemBuilder: (context, index) => Container(
                   decoration: kboxStyle,
-                  child: CategoryGrid(categories: foods, index: index),
+                  child: CategoryGrid(categories: [], index: index),
                 ),
               )),
             ),

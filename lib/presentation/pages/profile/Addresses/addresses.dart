@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/presentation/pages/profile/Addresses/map.dart';
+import 'package:food_delivery_app/presentation/pages/profile/Addresses/tempmap.dart';
 import 'package:food_delivery_app/presentation/pages/profile/Addresses/widget/address_card.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -44,7 +45,7 @@ class AddressesPage extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const GMap(),
+                  builder: (context) => MapScreen(),
                 ));
           },
           icon: const Icon(Icons.add),

@@ -29,6 +29,6 @@ class FavouritePage extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.white10,
         ),
-        body: ItemsView(categories: favorites));
+        body: Placeholder());
   }
 }

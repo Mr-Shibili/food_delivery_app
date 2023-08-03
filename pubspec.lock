@@ -304,6 +304,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
+  google_identity_services_web:
+    dependency: transitive
+    description:
+      name: google_identity_services_web
+      sha256: "7940fdc3b1035db4d65d387c1bdd6f9574deaa6777411569c05ecc25672efacd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.1"
   google_maps:
     dependency: transitive
     description:
@@ -360,6 +368,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.5"
+  google_sign_in:
+    dependency: "direct main"
+    description:
+      name: google_sign_in
+      sha256: aab6fdc41374014494f9e9026b9859e7309639d50a0bf4a2a412467a5ae4abc6
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.4"
+  google_sign_in_android:
+    dependency: transitive
+    description:
+      name: google_sign_in_android
+      sha256: "8d60a787b29cb7d2bcf29230865f4a91f17323c6ac5b6b9027a6418e48d9ffc3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.18"
+  google_sign_in_ios:
+    dependency: transitive
+    description:
+      name: google_sign_in_ios
+      sha256: "6ec0e13a4c5c646471b9f6a25ceb3ae76d339889d4c0f79b729bf0714215a63e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.6.2"
+  google_sign_in_platform_interface:
+    dependency: transitive
+    description:
+      name: google_sign_in_platform_interface
+      sha256: e69553c0fc6a76216e9d06a8c3767e291ad9be42171f879aab7ab708569d4393
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
+  google_sign_in_web:
+    dependency: transitive
+    description:
+      name: google_sign_in_web
+      sha256: "69b9ce0e760945ff52337921a8b5871592b74c92f85e7632293310701eea68cc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.12.0+2"
   html:
     dependency: transitive
     description:
@@ -424,6 +472,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  location:
+    dependency: "direct main"
+    description:
+      name: location
+      sha256: "81eef746c121de69b9936ccad350707b2579a76f9d1a162e47db1fb7d2c9db9f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.1"
+  location_platform_interface:
+    dependency: transitive
+    description:
+      name: location_platform_interface
+      sha256: "069476ccddce7fa162d37522cb823fb0df1c43176b38fba7ee2d7712e233f8ba"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
+  location_web:
+    dependency: transitive
+    description:
+      name: location_web
+      sha256: "3249dfd4a50732440a9d8b3791a05e33facde2d1902b1e8dbd222b30a8d0f7b4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   matcher:
     dependency: transitive
     description:
@@ -524,10 +596,10 @@ packages:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      sha256: "6a2128648c854906c53fa8e33986fc0247a1116122f9534dd20e3ab9e16a32bc"
+      sha256: "43798d895c929056255600343db8f049921cbec94d31ec87f1dc5c16c01935dd"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.4"
+    version: "2.1.5"
   process:
     dependency: transitive
     description:
@@ -544,6 +616,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.5"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      sha256: b1c1ac5ce6688d77f65f3375a9abb9319b3cb32486bdc7a1e0fdf004d7ba4e47
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.1"
   rxdart:
     dependency: transitive
     description:

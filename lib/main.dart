@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/controller/category_controller.dart';
 import 'package:food_delivery_app/controller/location_controller.dart';
+import 'package:food_delivery_app/controller/product_controller.dart';
 import 'package:food_delivery_app/controller/profile_controller.dart';
 import 'package:food_delivery_app/controller/setting_controller.dart';
 import 'package:food_delivery_app/controller/validation.dart';
@@ -18,6 +20,8 @@ void main() async {
     ChangeNotifierProvider(create: (context) => SettingController()),
     ChangeNotifierProvider(create: (context) => ProfileController()),
     ChangeNotifierProvider(create: (context) => LocationController()),
+    ChangeNotifierProvider(create: (context) => CategoryController()),
+    ChangeNotifierProvider(create: (context) => ProductController()),
   ], child: const MyApp()));
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/auth/auth_services.dart';
 import 'package:food_delivery_app/presentation/pages/constants/constants.dart';
 import 'package:food_delivery_app/presentation/pages/home/cart/cart.dart';
 import 'package:food_delivery_app/presentation/pages/home/widgets/categorie.dart';
@@ -32,6 +33,7 @@ class MyHomePage extends StatelessWidget {
         padding: const EdgeInsets.all(14.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
@@ -107,8 +109,8 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CategoriesPage(
-                                  categories: categories, initialIndex: 0),
+                              builder: (context) =>
+                                  CategoriesPage(initialIndex: 0),
                             ));
                       },
                       child: const Text(
@@ -118,7 +120,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
               khight,
-              CategoryHome(categories: categories),
+              CategoryHome(),
               OfferCards(categories: categories, size: size),
               khight,
               Row(
@@ -133,8 +135,8 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CategoriesPage(
-                                  categories: categories, initialIndex: 1),
+                              builder: (context) =>
+                                  CategoriesPage(initialIndex: 1),
                             ));
                       },
                       child: const Text(

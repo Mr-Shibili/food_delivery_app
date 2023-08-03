@@ -13,7 +13,12 @@ class AuthPage extends StatelessWidget {
         future: SharedPriference().getApiToken(),
         builder: (context, snapshot) {
           //log in
-          if (snapshot.hasData) {
+
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return const Center(child: Text('Error fetching data'));
+          } else if (snapshot.hasData) {
             return const CustomBottomnavigation();
           }
 

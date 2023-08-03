@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/model/catebory_model.dart';
 
 import '../../constants/constants.dart';
 
@@ -9,21 +10,19 @@ class CategoryGrid extends StatelessWidget {
     this.index,
   });
 
-  final List<String> categories;
-  final index;
+  final List<CategoryModel> categories;
+  final int? index;
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const CircleAvatar(
+        CircleAvatar(
           maxRadius: 30,
-          child: Image(
-              image: AssetImage(
-                  'asset/images/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png')),
+          backgroundImage: NetworkImage(categories[index!].logo!),
         ),
         khight,
-        Text(categories[index]),
+        Text(categories[index!].name!),
       ],
     );
   }
